@@ -1,0 +1,38 @@
+services:
+  - type: web
+    name: fisgrade-api
+    runtime: python
+    rootDir: apps/api
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: APP_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: ENCRYPTION_KEY
+        sync: false
+      - key: NIM_HASH_PEPPER
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: LLM_PROVIDER
+        value: groq
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: openai/gpt-oss-120b
+      - key: CHECK_IDLE_MS
+        value: "7000"
+      - key: CHECK_MIN_INTERVAL_MS
+        value: "3000"
+      - key: MAX_ATTEMPTS
+        value: "3"
+      - key: HINT_PENALTIES
+        value: "5,10,10"
+      - key: HINT3_DELAY_SEC
+        value: "15"
