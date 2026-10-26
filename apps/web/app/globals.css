@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-sans);
+  
+  --color-navy-900: #071B3D;
+  --color-navy-700: #0B2A5B;
+  --color-navy-500: #1F4E9C;
+  --color-navy-100: #E6ECF7;
+  --color-surface-50: #F6F8FB;
+  --color-surface-200: #D9DFEA;
+  --color-ink-600: #4B5568;
+  --color-success: #166534;
+  --color-warning: #B45309;
+  --color-error: #B91C1C;
+
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.75);
+  --radius-md: var(--radius);
+  --radius-lg: 12px;
+}
+
+:root {
+  --white: #FFFFFF;
+  --navy-900: #071B3D;
+  --navy-700: #0B2A5B;
+  --navy-500: #1F4E9C;
+  --navy-100: #E6ECF7;
+  --gray-50: #F6F8FB;
+  --gray-200: #D9DFEA;
+  --gray-600: #4B5568;
+  --success: #166534;
+  --warning: #B45309;
+  --error: #B91C1C;
+  
+  --background: #FFFFFF;
+  --foreground: #071B3D;
+  
+  --card: #FFFFFF;
+  --card-foreground: #071B3D;
+  
+  --popover: #FFFFFF;
+  --popover-foreground: #071B3D;
+  
+  --primary: #0B2A5B;
+  --primary-foreground: #FFFFFF;
+  
+  --secondary: #E6ECF7;
+  --secondary-foreground: #071B3D;
+  
+  --muted: #F6F8FB;
+  --muted-foreground: #4B5568;
+  
+  --accent: #E6ECF7;
+  --accent-foreground: #0B2A5B;
+  
+  --destructive: #B91C1C;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: #D9DFEA;
+  --input: #D9DFEA;
+  --ring: #1F4E9C;
+  
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow: 0 1px 2px rgba(7, 27, 61, 0.08);
+}
