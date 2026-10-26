@@ -1,0 +1,15 @@
+{
+  "name": "fisgrade-monorepo",
+  "version": "1.1.0",
+  "private": true,
+  "description": "FisGrade — Asesmen Formatif Fisika Berbasis Proses Multirepresentasi",
+  "scripts": {
+    "dev": "npm --prefix apps/web run dev",
+    "build": "npm --prefix apps/web run build",
+    "start": "npm --prefix apps/web start",
+    "lint": "npm --prefix apps/web run lint",
+    "api": "uvicorn app.main:app --app-dir apps/api --reload --port 8000",
+    "test:api": "python -m pytest apps/api -v",
+    "skenario": "python -m app.cli jalankan_skenario"
+  }
+}

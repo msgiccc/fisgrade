@@ -1,0 +1,67 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: fisgrade-db
+    restart: always
+    environment:
+      POSTGRES_USER: fisgrade
+      POSTGRES_PASSWORD: fisgrade
+      POSTGRES_DB: fisgrade
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fisgrade -d fisgrade"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./apps/api
+      dockerfile: Dockerfile
+    container_name: fisgrade-api
+    restart: always
+    environment:
+      APP_ENV: production
+      DATABASE_URL: postgresql+psycopg://fisgrade:fisgrade@db:5432/fisgrade
+      SECRET_KEY: ${SECRET_KEY:-fisgrade-production-secret-key-32-chars-long-2026}
+      ENCRYPTION_KEY: ${ENCRYPTION_KEY:-dGhpc2lzYWZha2VmZXJuZXRrZXlmb3JkZXZlbG9wbWVudDE=}
+      NIM_HASH_PEPPER: ${NIM_HASH_PEPPER:-fisgrade-nim-pepper-key-2026}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
+      LLM_ENABLED: ${LLM_ENABLED:-true}
+      OPENROUTER_API_KEY: ${OPENROUTER_API_KEY:-}
+      OPENROUTER_MODEL: ${OPENROUTER_MODEL:-anthropic/claude-3.5-sonnet}
+      OPENROUTER_BASE_URL: ${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
+      LLM_TIMEOUT_MS: ${LLM_TIMEOUT_MS:-15000}
+      LLM_MIN_CONFIDENCE: ${LLM_MIN_CONFIDENCE:-0.6}
+      LLM_CALLS_PER_PARTICIPANT_PER_MIN: ${LLM_CALLS_PER_PARTICIPANT_PER_MIN:-6}
+      CHECK_IDLE_MS: ${CHECK_IDLE_MS:-7000}
+      CHECK_MIN_INTERVAL_MS: ${CHECK_MIN_INTERVAL_MS:-3000}
+      MAX_ATTEMPTS: ${MAX_ATTEMPTS:-3}
+      STAGNATION_SEC: ${STAGNATION_SEC:-60}
+      HINT_PENALTIES: ${HINT_PENALTIES:-5,10,10}
+      HINT3_DELAY_SEC: ${HINT3_DELAY_SEC:-15}
+      DATA_RETENTION_DAYS: ${DATA_RETENTION_DAYS:-365}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  web:
+    build:
+      context: ./apps/web
+      dockerfile: Dockerfile
+    container_name: fisgrade-web
+    restart: always
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api
+
+volumes:
+  postgres_data:

@@ -1,0 +1,92 @@
+{
+  "paket": {
+    "kode": "newton-gerak",
+    "versi": "1.0",
+    "judul": "Hukum Newton tentang gerak",
+    "topik": "Dinamika partikel",
+    "durasi_menit": 45
+  },
+  "soal": [
+    {
+      "urutan": 1,
+      "teks": "Sebuah balok bermassa 5 kg ditarik gaya F = 30 N ke kanan di atas bidang datar kasar (mu_k = 0,2; g = 10 m/s^2). Jelaskan gaya yang bekerja dan tunjukkan gerak balok.",
+      "parameter": {
+        "m": 5,
+        "F": 30,
+        "mu_k": 0.2,
+        "g": 10
+      },
+      "kunci": {
+        "verbal": {
+          "konsep_wajib": [
+            "hukum II Newton",
+            "gaya gesek kinetik",
+            "gaya normal",
+            "percepatan konstan"
+          ],
+          "relasi": [
+            "gaya netto tidak nol menyebabkan percepatan searah gaya netto"
+          ]
+        },
+        "matematis": {
+          "persamaan_dasar": "sum_F = m*a",
+          "hasil": {
+            "N": 50,
+            "f_k": 10,
+            "a": 4
+          },
+          "satuan": {
+            "a": "m/s^2"
+          },
+          "toleransi_rel": 0.01
+        },
+        "grafis": {
+          "jenis": "v-t",
+          "bentuk": "linear",
+          "kemiringan": 4,
+          "titik_kunci": [
+            [0, 0],
+            [8, 32]
+          ]
+        },
+        "visual": {
+          "gaya": [
+            { "label": "N", "sudut": 90, "rel": 1.0 },
+            { "label": "W", "sudut": 270, "rel": 1.0 },
+            { "label": "F", "sudut": 0, "rel": 0.6 },
+            { "label": "f_k", "sudut": 180, "rel": 0.2 }
+          ],
+          "toleransi_sudut": 10,
+          "toleransi_panjang_rel": 0.2
+        }
+      },
+      "rubrik": {
+        "verbal": {
+          "prinsip": 30,
+          "gaya": 30,
+          "sebab_akibat": 30,
+          "kejelasan": 10
+        },
+        "matematis": {
+          "persamaan": 25,
+          "substitusi": 25,
+          "hasil": 30,
+          "satuan": 20
+        },
+        "grafis": {
+          "jenis_bentuk": 30,
+          "sumbu_satuan": 25,
+          "nilai_kunci": 35,
+          "kelengkapan": 10
+        },
+        "visual": {
+          "objek": 15,
+          "gaya": 30,
+          "arah": 25,
+          "panjang": 15,
+          "label": 15
+        }
+      }
+    }
+  ]
+}

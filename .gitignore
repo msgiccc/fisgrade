@@ -1,0 +1,54 @@
+# Dependencies
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Builds
+.next/
+dist/
+build/
+out/
+
+# Database & Environment (NEVER commit these)
+*.db
+*.sqlite3
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Python cache
+.pytest_cache/
+*.egg-info/
+.eggs/
+site-packages/
+
+# Coverage
+coverage/
+.coverage
+htmlcov/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Alembic compiled (keep migrations, ignore compiled)
+# Keep: alembic/versions/*.py
+# (nothing extra to ignore here)

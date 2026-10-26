@@ -1,0 +1,39 @@
+{
+  "verbal": {
+    "representasi": "verbal",
+    "teks": "Balok dipengaruhi gaya berat W, gaya normal N, gaya tarik F, dan gaya gesek kinetik f_k yang berlawanan arah gerak. Menurut hukum II Newton, gaya netto F - f_k menghasilkan percepatan konstan sehingga kecepatan bertambah linear terhadap waktu."
+  },
+  "matematis": {
+    "representasi": "matematis",
+    "baris": [
+      { "id": "m1", "ekspresi": "N = 5*10", "sintaks_ok": true },
+      { "id": "m2", "ekspresi": "f_k = 0.2*N", "sintaks_ok": true },
+      { "id": "m3", "ekspresi": "sum_F = m*a", "sintaks_ok": true },
+      { "id": "m4", "ekspresi": "F - f_k = m*a", "sintaks_ok": true },
+      { "id": "m5", "ekspresi": "30 - 10 = 5*a", "sintaks_ok": true },
+      { "id": "m6", "ekspresi": "a = 4 m/s^2", "sintaks_ok": true }
+    ]
+  },
+  "grafis": {
+    "representasi": "grafis",
+    "jenis": "v-t",
+    "sumbu_x": { "nama": "t", "satuan": "s" },
+    "sumbu_y": { "nama": "v", "satuan": "m/s" },
+    "titik": [[0, 0], [8, 32]],
+    "bentuk": "linear",
+    "kemiringan": 4.0
+  },
+  "visual": {
+    "representasi": "visual",
+    "objek": [
+      { "id": "o1", "tipe": "balok" },
+      { "id": "o2", "tipe": "bidang_datar", "kasar": true }
+    ],
+    "gaya": [
+      { "id": "g1", "label": "N", "objek": "o1", "sudut": 90, "panjang_rel": 1.0 },
+      { "id": "g2", "label": "W", "objek": "o1", "sudut": 270, "panjang_rel": 1.0 },
+      { "id": "g3", "label": "F", "objek": "o1", "sudut": 0, "panjang_rel": 0.6 },
+      { "id": "g4", "label": "f_k", "objek": "o1", "sudut": 180, "panjang_rel": 0.2 }
+    ]
+  }
+}
